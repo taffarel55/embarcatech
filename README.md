@@ -14,19 +14,19 @@ Esta é uma descrição do que estou aprendendo, um resumo de geral de como ser�
 <table>
   <tbody>
     <tr>
-      <td align="center">Tecnologia 1<br>
+      <td align="center">Sistemas Embarcados<br>
         <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
       </td>
-      <td align="center">Tecnologia 2<br>
+      <td align="center">Linguagens de Programação<br>
         <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
       </td>
-      <td align="center">Tecnologia 3<br>
+      <td align="center">Internet das Coisas<br>
         <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
       </td>
-      <td align="center">Tecnologia 4<br>
+      <td align="center">Estudos de Caso<br>
         <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
       </td>
-      <td align="center">Tecnologia 5<br>
+      <td align="center">Microcontroladores<br>
         <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
       </td>
     </tr>
