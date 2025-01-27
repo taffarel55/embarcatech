@@ -1,0 +1,3 @@
+[submodule "private-files"]
+	path = private-files
+	url = git@github.com:taffarel55/embarcatech-private.git
