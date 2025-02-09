@@ -2,6 +2,8 @@
 
 Este documento descreve o projeto do jogo da cobrinha com controle remoto, incluindo instruções para gravação na placa BitdogLab, estrutura do projeto, funcionamento do jogo.
 
+Link do repositório: https://github.com/taffarel55/embarcatech
+
 |                      Jogo 🐍                      |           Controle 🕹️            |
 | :-----------------------------------------------: | :------------------------------: |
 | ![Print do jogo da cobrinha](assets/cobrinha.png) | ![Controle](assets/controle.png) |
@@ -9,6 +11,8 @@ Este documento descreve o projeto do jogo da cobrinha com controle remoto, inclu
 A ideia inicial era utilizar um exemplo simples e mostrar como isso pode ser aplicado em soluções integradas. Devido a limitação de hardware e de componentes eletrônicos adicionais, e também do desejo de NÃO fazer no Wokwi por que eu queria ver um circuito real funcionando, eu utilizei o Joystick integrado à placa BitDogLab junto com a comunicação serial para realizar uma leitura serial no meu computador e utilizar essa informação do sensor em um software, inicialmente pensei em fazer algum tipo de sensoriamento e plotar gráficos, mas seria complicado simular um dado real com o joystick.
 
 Ai foi que eu tive a ideia de criar um jogo da cobrinha e usar a informação do joystick para controlar a direção X e Y da cobrinha :D
+
+https://github.com/user-attachments/assets/9cd406ab-e85b-4a6d-9846-9ef16c740153
 
 ## ⚙️ Funcionamento do Jogo
 
