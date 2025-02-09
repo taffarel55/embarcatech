@@ -1,98 +1,72 @@
-<h1 id="inicio" align="center">
-  <br>
-  <img src="assets/logo.svg" alt="Just a simple icon" height="100">
-  <br>
+# 🐍 Jogo da Cobrinha com Controle Remoto
 
-Título do Projeto
+Este documento descreve o projeto do jogo da cobrinha com controle remoto, incluindo instruções para gravação na placa BitdogLab, estrutura do projeto, funcionamento do jogo.
 
-</h1>
+|                      Jogo 🐍                      |           Controle 🕹️            |
+| :-----------------------------------------------: | :------------------------------: |
+| ![Print do jogo da cobrinha](assets/cobrinha.png) | ![Controle](assets/controle.png) |
 
-Esta é uma descrição do que estou aprendendo, um resumo de geral de como será e está sendo feito e qual material estou seguindo.
+A ideia inicial era utilizar um exemplo simples e mostrar como isso pode ser aplicado em soluções integradas. Devido a limitação de hardware e de componentes eletrônicos adicionais, e também do desejo de NÃO fazer no Wokwi por que eu queria ver um circuito real funcionando, eu utilizei o Joystick integrado à placa BitDogLab junto com a comunicação serial para realizar uma leitura serial no meu computador e utilizar essa informação do sensor em um software, inicialmente pensei em fazer algum tipo de sensoriamento e plotar gráficos, mas seria complicado simular um dado real com o joystick.
 
-## 💻 Tecnologias abordadas
+Ai foi que eu tive a ideia de criar um jogo da cobrinha e usar a informação do joystick para controlar a direção X e Y da cobrinha :D
 
-<table>
-  <tbody>
-    <tr>
-      <td align="center">Sistemas Embarcados<br>
-        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-      </td>
-      <td align="center">Linguagens de Programação<br>
-        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-      </td>
-      <td align="center">Internet das Coisas<br>
-        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-      </td>
-      <td align="center">Estudos de Caso<br>
-        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-      </td>
-      <td align="center">Microcontroladores<br>
-        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-      </td>
-    </tr>
-    <tr>
-        <td><a href="#"><img src="assets/logo.svg" width="2560px"></a></td>
-        <td><a href="#"><img src="assets/logo.svg" width="2560px"></a></td>
-        <td><a href="#"><img src="assets/logo.svg" width="2560px"></a></td>
-        <td><a href="#"><img src="assets/logo.svg" width="2560px"></a></td>
-        <td><a href="#"><img src="assets/logo.svg" width="2560px"></a></td>
-    </tr>
-  </tbody>
-</table>
+## ⚙️ Funcionamento do Jogo
 
-## 🚀 Lista de itens
+O jogo da cobrinha é controlado por um controle remoto de hardware que envia dados para o computador através da porta serial. O código em C `projeto.c` roda na placa **BitdogLab** e é responsável por ler os valores dos potenciômetros `VRX` e `VRY` conectados aos pinos 26 e 27 (ADC). Esses valores são enviados para o computador via porta serial.
 
-- [Subtópico 1](#link-para-subtopico-1)
-- [Subtópico 2](#link-para-subtopico-2)
-- [Subtópico 3](#link-para-subtopico-3)
+O código em Python `cobrinha.py` é executado no computador e lê os dados da porta serial. Os valores de `VRX` e `VRY` são usados para controlar a direção da cobrinha no jogo. O jogo em si é implementado usando a biblioteca `pygame`.
 
-### 2. [Tecnologia 2](#)
+Controle da cobrinha
 
-- [Subtópico 1](#link-para-subtopico-1)
-- [Subtópico 2](#link-para-subtopico-2)
-- [Subtópico 3](#link-para-subtopico-3)
+- `VRX`: Controla o movimento horizontal da cobrinha (esquerda/direita).
+- `VRY`: Controla o movimento vertical da cobrinha (cima/baixo).
 
-...
+## 📌 Instruções para gravação na Placa BitDogLab
 
-### n. [Tecnologia n](#)
+### 1. Instale o Pico SDK
 
-- [Subtópico 1](#link-para-subtopico-1)
-- [Subtópico 2](#link-para-subtopico-2)
-- [Subtópico 3](#link-para-subtopico-3)
+Certifique-se de ter o Pico SDK instalado e configurado corretamente.
 
-> Comentários são sempre bem-vindos entre um item e outro afim de mencionar alguma coisa importante
+### 2. Compile o código C
 
-<h2 id="algo-para-chamar-atenção">🤯 Imagem/gif bacana de algo do projeto para chamar atenção</h2>
+Use o CMake para compilar o código C e gerar o arquivo .uf2.
 
-![Uma imagem grande aqui para ela ficar centralizada](https://via.placeholder.com/2200x1200.png)
+### 3. Grave o arquivo .uf2
 
----
+Conecte a placa **BitDogLab** ao computador no modo de bootloader (segurando o botão `BOOTSEL` enquanto conecta). Arraste e solte o arquivo `.uf2` gerado para a unidade de disco que aparece.
 
-<h2 id="contribuir">📫 Contribuindo para este repositório</h2>
+Ou só grave usando o _hands-free_!
 
-Contribuições são o que tornam a comunidade de código aberto um lugar incrível para aprender, inspirar e criar. Todas as contribuições que você fizer são muito bem vindas!
+## 📌 Executando o jogo no computador
 
-Se quiser "fortalecer" aí sugerindo correções de texto e ortografia ou algum ajuste de código, pode abrir o pull request que vou amar!! :heart_eyes:
+### 1. Crie um ambiente virtual:
 
-> Se tiver uma contribuição rápida que não envolve código, conteúdo ou quiser reportar algum problema sem ter que propor mudanças [clique aqui](https://github.com/<NOME_USUARIO>/<NOME_PROJETO>/issues/new) para criar uma issue.
+```bash
+python3 -m venv .venv
+source .venv/bin/activate  # No Linux/macOS
+.venv\Scripts\activate     # No Windows
+```
 
-### Caso contrário, siga estes passos
+### 2. Instale as dependências:
 
-1. Bifurque este repositório.
-2. Crie um branch: `git checkout -b novoRecurso`.
-3. Adicione suas edições para próximo commit: `git add .`
-4. Faça suas alterações e confirme-as: `git commit -m 'Mensagem da sua contribuição'`
-5. Especifique um novo repositório upstream remote que será sincronizado com a bifurcação: `git remote add upstream git@github.com:<NOME_USUARIO>/<NOME-REPOSITORIO>.git`
-6. Envie para o branch original: `git push --set-upstream origin novoRecurso`
-7. Crie a solicitação de pull através do link que aparecer no terminal.
+```bash
+pip install -r projeto/jogo/requirements.txt
+```
 
-### Muito complicado tudo que ta aí em cima?
+### 3. Execute o jogo:
 
-Como alternativa do procedimento anterior, veja o passo a passo com imagens e explicações mais detalhadas de como propor mudanças:
+```
+python projeto/jogo/cobrinha.py
+```
 
-1. [Como bifurcar e clonar um repositório Github](https://docs.github.com/pt/github/getting-started-with-github/quickstart/fork-a-repo)
-2. [Como criar uma bifurcação para propor mudanças](https://docs.github.com/pt/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)
-3. [Como propor de mudança através de uma bifurcação](https://docs.github.com/pt/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
+> ⚠️ **Observação**:
+> Certifique-se de que a porta serial correta esteja configurada no código Python.
+
+## ✨ Futuras melhorias
+
+Acredito que 2 coisas podem ser feitas para adicionar novos recursos como a capacidade de comunicação sem fio do controle através do módulo de Wifi e a escolha no game do nível de dificuldade ou até mesmo fazer uma dificuldade progressiva!
+
+Assim o jogo funcionaria como se fosse um controle sem fio e através de uma comunicação duplex, o programa em python poderia enviar um comando para o firmware quando fosse a hora de atualizar a taxa de amostragem para aumentar a velocidade do jogo
 
 ## 🤝 Pessoas colaboradoras
 
@@ -131,7 +105,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
 ## 😄 Seja um das pessoas contribuidoras<br>
 
-Quer fazer parte desse projeto e ajustar alguma ~~merda~~ besteira que eu escrevi? Proponha mudanças seguindo este [passo a passo](#contribuir). Fazer
+Quer fazer parte desse projeto e ajustar alguma ~~merda~~ besteira que eu escrevi? Abre aí uma _issue_ e proponha mudanças!
 
 Ah, fique a vontade para editar este `README.md` te adicionando à lista de pessoas contribuidoras.
 
